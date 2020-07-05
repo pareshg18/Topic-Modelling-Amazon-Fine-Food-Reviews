@@ -8,4 +8,4 @@ In Machine Learning and Natural Language Processing, Topic Models, a type of sta
 
 # DATA
 
-For the project, I used publicly available Amazon's Fine Food reveiws data. It can be accessed here. The data contains approx. 569,000 reviews from 256,000 users.
+For the project, I used publicly available Amazon's Fine Food reveiws data. It can be accessed [here](http://snap.stanford.edu/data/web-FineFoods.html). The data contains approx. 569,000 reviews from 256,000 users.
