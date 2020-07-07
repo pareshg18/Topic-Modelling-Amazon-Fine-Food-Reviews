@@ -1,0 +1,119 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[8]:
+
+
+from flask import Flask,render_template,url_for,request
+import pandas as pd 
+import pickle
+#from sklearn.feature_extraction.text import CountVectorizer
+#from sklearn.naive_bayes import MultinomialNB
+from gensim import corpora
+from nltk import word_tokenize
+from gensim.corpora import Dictionary
+import spacy
+import re
+import pickle
+import string
+#loading spacy -en
+nlp = spacy.load(r'C:\Users\pares\AppData\Local\Continuum\anaconda3\Lib\site-packages\en_core_web_sm\en_core_web_sm-2.1.0', disable=['parser', 'ner'])
+#from sklearn.externals import joblib
+import pickle
+
+
+# In[9]:
+
+
+# load the model from disk
+filename = 'final-lda-model.pkl'
+lda = pickle.load(open(filename, 'rb'))
+with open('stop_words_amazon', 'rb') as f:
+    stop_words = pickle.load(f)
+corpusmm = corpora.MmCorpus('all_text_corpus.mm')
+
+
+# In[ ]:
+
+
+#cv=pickle.load(open('tranform.pkl','rb'))
+
+
+# In[10]:
+
+
+app = Flask(__name__)
+
+
+# In[ ]:
+
+
+@app.route('/')
+def home():
+    return render_template('home.html')
+
+@app.route('/predict',methods=['POST'])
+
+def predict():
+    
+    dct_lda = Dictionary.from_corpus(corpusmm,id2word = lda.id2word)
+    lda_theme = {0:'Delivery/ Order Related Issues',1:'Breakfast Food',2:'Chewing Gums/ Dog Treats',3:'Bad Products',4:'Energy Drinks/ Sports Drinks',5:'Packaging Bags',
+             6:'Sweet Snacks(Chocolates)',7:'Beverages (Juices)',8:'Gifts/High Calorie Foods', 9:'Spicy Food/ Soups',10:'A Baking Recipe',11:'Pet Issues',
+             12:'Tea(s)',13:'Salty Snacks(Crackers)', 14:'Hair Products/ Cat Issues', 15: 'Coffee'}
+
+
+    def clean_text(text):
+        text = text.lower() #lower-casing
+        text = [i for i in word_tokenize(text) if i not in stop_words] #remvoving stop-words
+        doc = nlp(' '.join(text))
+        text = [token.lemma_ for token in doc] #lemmatizing the reviews
+        text = ' '.join(text)    
+        text = re.sub(r'\d+','',text) #removing numbers
+        text = text.translate(str.maketrans('','',string.punctuation)) #removing punctuation
+        text = text.strip() #removing white-spaces
+        return text
+    
+    #predicting LDA topic
+    def predict_topic(document):
+        document = clean_text(document)
+        doc_vector_lda = dct_lda.doc2bow(word_tokenize(document))
+        topic1,perc1 = sorted(lda[doc_vector_lda],key = lambda x:x[1],reverse = True)[0]
+        return lda_theme[topic1]
+        #print("LDA predicts this document to be talking about",'\x1b[1;31m'+ lda_theme[topic1]  +'\x1b[0m')
+        
+    if request.method == 'POST':
+        message = request.form['message']
+        data = message
+        #vect = cv.transform(data).toarray()
+        my_prediction = predict_topic(data)
+    return render_template('home.html',prediction_text = 'Your review is about ' + my_prediction)
+
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
