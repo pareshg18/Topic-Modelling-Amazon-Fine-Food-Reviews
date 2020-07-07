@@ -33,8 +33,6 @@ with open('stop_words_amazon', 'rb') as f:
 with open('lda_dictionary', 'rb') as f:
     dct_lda = pickle.load(f)
 
-with open('spacy-en', 'rb') as f:
-    nlp = pickle.load(f)
 
 # In[ ]:
 
