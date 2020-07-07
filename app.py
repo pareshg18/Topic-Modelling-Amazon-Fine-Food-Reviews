@@ -19,6 +19,7 @@ from pattern.en import lemma, lexeme
 #loading spacy -en
 #from sklearn.externals import joblib
 import pickle
+import nltk
 nltk.download('punkt')
 
 
