@@ -12,5 +12,4 @@ pandas>=0.19
 nltk>=3.4
 gensim==3.8.3
 spacy>=2.1
-string >= 3.7
 re >= 2.1
