@@ -15,6 +15,7 @@ from gensim.corpora import Dictionary
 import spacy
 import re
 import string
+from pattern.en import lemma, lexeme
 #loading spacy -en
 #from sklearn.externals import joblib
 import pickle
@@ -70,8 +71,10 @@ def predict():
     def clean_text(text):
         text = text.lower() #lower-casing
         text = [i for i in word_tokenize(text) if i not in stop_words] #remvoving stop-words
-        doc = nlp(' '.join(text))
-        text = [token.lemma_ for token in doc] #lemmatizing the reviews
+        #doc = nlp(' '.join(text))
+        #text = [token.lemma_ for token in doc] #lemmatizing the reviews
+        text = [lemma(wd) for wd in text]
+    
         text = ' '.join(text)    
         text = re.sub(r'\d+','',text) #removing numbers
         #removing punctuation
