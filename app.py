@@ -87,8 +87,8 @@ def predict():
     
     #predicting LDA topic
     def predict_topic(document):
-        document = clean_text(document)
-        doc_vector_lda = dct_lda.doc2bow(word_tokenize(document))
+        document = clean_text(document)        
+        doc_vector_lda = dct_lda.doc2bow(document.split(" "))
         topic1,perc1 = sorted(lda[doc_vector_lda],key = lambda x:x[1],reverse = True)[0]
         return lda_theme[topic1]
         #print("LDA predicts this document to be talking about",'\x1b[1;31m'+ lda_theme[topic1]  +'\x1b[0m')
