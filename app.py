@@ -12,7 +12,7 @@ import pickle
 from gensim import corpora
 #from nltk import word_tokenize
 from gensim.corpora import Dictionary
-import spacy
+#import spacy
 import re
 import string
 from pattern.en import lemma, lexeme
