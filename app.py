@@ -32,6 +32,8 @@ with open('stop_words_amazon', 'rb') as f:
 with open('lda_dictionary', 'rb') as f:
     dct_lda = pickle.load(f)
 
+with open('spacy-en', 'rb') as f:
+    nlp = pickle.load(f)
 
 # In[ ]:
 
@@ -61,7 +63,7 @@ def predict():
              6:'Sweet Snacks(Chocolates)',7:'Beverages (Juices)',8:'Gifts/High Calorie Foods', 9:'Spicy Food/ Soups',10:'A Baking Recipe',11:'Pet Issues',
              12:'Tea(s)',13:'Salty Snacks(Crackers)', 14:'Hair Products/ Cat Issues', 15: 'Coffee'}
     
-    nlp = spacy.load('en_core_web_sm')
+    #nlp = spacy.load('en_core_web_sm')
 
 
 
