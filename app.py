@@ -70,7 +70,11 @@ def predict():
         text = [token.lemma_ for token in doc] #lemmatizing the reviews
         text = ' '.join(text)    
         text = re.sub(r'\d+','',text) #removing numbers
-        text = text.translate(str.maketrans('','',string.punctuation)) #removing punctuation
+        #removing punctuation
+        punctuation = r"""!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"""
+        text = ''.join([i for i in text if i not in punctuation])
+        
+        #text = text.translate(str.maketrans('','',string.punctuation)) #removing punctuation
         text = text.strip() #removing white-spaces
         return text
     
