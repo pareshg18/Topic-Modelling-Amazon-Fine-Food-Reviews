@@ -10,27 +10,34 @@
 	<header>
 		<div class="container">
 		<div id="brandname">
-			Topic Modelling with Amazon Fine Food Reviews
+			<h1 style="text-align:center">Topic Modelling with Amazon Fine Food Reviews</h1>
 		</div>
-		<h2>Whats your Review about</h2>
+		<h3 style="text-align:center">This is an exhibit of a Machine Learning based project in Natural Language Processing that tells you what your product review is about. This project can be used to learn more about large corpuses of data and summarize/organize it into different categories </h3>
 		
 	</div>
+	
+	
+	<h4 style="text-align:left"> Few notes on the reviews:</h4>
+		<h4 style="text-align:left"> 1. Keep your reviews about products that are related to food items/beverages (The ML model built is based on Amazon's fine food reviews and therefore, best results will be obtained on reviews within a similar domain)</h4>
+		<h4 style="text-align:left"> 2. Feel free to include any character within the text box. The data pipeline is developed keeping in mind typical characters (including punctuations)</h4>
 	</header>
 
 	<div class="ml-container">
 
 		<form action="{{ url_for('predict')}}" method="POST">
-		<p>Enter Your Message Here</p>
+		<p>Enter your product review here</p>
 		<!-- <input type="text" name="comment"/> -->
-		<textarea name="message" rows="6" cols="50"></textarea>
+		<textarea name="message" rows="6" cols="200"></textarea>
 		<br/>
 
-		<input type="submit" class="btn-info" value="predict">
+		<input type="submit" class="btn-info" value="Tell me more about my review">
 		
 	</form>
-	<br>
-	<br>
-	{{ prediction_text }}
+	<h3 style="color:blue";> {{ prediction_text1 }}</h3>
+	<h3 style="color:blue";>{{ prediction_text2 }}</h3>
+	<h3 style="color:green";>{{ prediction_text3 }}</h3>
+	<h3 style="color:green";>{{ prediction_text4 }}</h3>
+	<h3 style="color:green";>{{ prediction_text5 }}</h3>
 		
 	</div>
 
