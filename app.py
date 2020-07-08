@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[8]:
-
+#Topic- Modelling app by Paresh Gupta
 
 from flask import Flask,render_template,url_for,request
 import pandas as pd 
@@ -98,7 +97,7 @@ def predict():
         data = message
         #vect = cv.transform(data).toarray()
         my_prediction = predict_topic(data)
-    return render_template('home.html',prediction_text = 'Your review is about ' + my_prediction)
+    return render_template('home.html',prediction_text = 'Your wrote a review about ' + my_prediction)
 
 
 
