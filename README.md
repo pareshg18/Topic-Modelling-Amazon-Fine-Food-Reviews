@@ -38,4 +38,18 @@ Cleaning the textual data was very important to get good topics from the reviews
 * Removing Whitespaces
 * Lemmatizing all reviews
 
+# Modelling
 
+1. K-Means - Identified 15 topics using k-means. Evaluated topics using SSE
+
+![kmeans](https://user-images.githubusercontent.com/45079009/87081668-99798580-c1de-11ea-80ab-04ace390316c.PNG)
+
+2. LDA - Identified 16 topics using LDA. Evaluated the topics using coherence scores  
+
+![lda_final_vis](https://user-images.githubusercontent.com/45079009/87081814-d5ace600-c1de-11ea-98fb-0d43d31225ee.PNG)
+
+3. NMF - Identified 11 topics using NMF. Evaluated the topics using coherence scores  
+
+# Conclusion
+
+LDA does a better job here. Both the models have been good picking the topics for majority of documents but LDA takes a slight edge, so I'm gonna use it as my final model here. The final LDA model was deployed using Flask and Heroku.
