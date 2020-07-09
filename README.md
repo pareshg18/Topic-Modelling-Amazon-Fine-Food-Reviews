@@ -15,3 +15,27 @@ App - https://topic-modelling-amzon-reviews.herokuapp.com/
 # DATA
 
 For the project, I used publicly available Amazon's Fine Food reveiws data. It can be accessed [here](http://snap.stanford.edu/data/web-FineFoods.html). The data contains approx. 569,000 reviews from 256,000 users.
+
+![data](https://user-images.githubusercontent.com/45079009/84345478-56d27800-ab62-11ea-9d5d-29df1aea7280.PNG)
+
+This is what a sample from all the words look like.
+
+![xyz](https://user-images.githubusercontent.com/45079009/84370567-4683c280-ab8d-11ea-8e6e-d787b398d864.png)
+
+There is quite a range of words in this. From coffee to chocolate to dog. It is hard to read what kind of topics or themes are actually in the reviews.
+
+# Text Normalization
+
+Cleaning the textual data was very important to get good topics from the reviews. The process involved following steps:
+
+* Removing HTML tags
+* Correcting grammar contractions
+* Lowercasing the reviews
+* Removing numbers and additional white spaces
+* Removing Punctuations
+* Tokenization
+* Remving stopwords (using a long list of words from rank.nl and domain specific words)
+* Removing Whitespaces
+* Lemmatizing all reviews
+
+
