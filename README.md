@@ -50,6 +50,8 @@ Cleaning the textual data was very important to get good topics from the reviews
 
 3. NMF - Identified 11 topics using NMF. Evaluated the topics using coherence scores  
 
+![nmf](https://user-images.githubusercontent.com/45079009/87088578-df881680-c1e9-11ea-9376-e00bac0eadc8.PNG)
+
 # Conclusion
 
 LDA does a better job here. Both the models have been good picking the topics for majority of documents but LDA takes a slight edge, so I'm gonna use it as my final model here. The final LDA model was deployed using Flask and Heroku.
