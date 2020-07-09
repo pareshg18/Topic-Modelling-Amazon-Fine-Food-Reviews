@@ -6,6 +6,12 @@ Or, alternatively, if we have a bunch of documents and we can identify each docu
 
 In Machine Learning and Natural Language Processing, Topic Models, a type of statistical model, gives us the ability to discover topics from a collection of documents.
 
+# Hereko based App
+
+Below you can find the link to the app, where you can provide your own reviews and find out what the review is about? Please keep in mind the algorithm works best for food/beverages based products that can be commonly found for Amazon's fine foods.
+
+App - https://topic-modelling-amzon-reviews.herokuapp.com/
+
 # DATA
 
 For the project, I used publicly available Amazon's Fine Food reveiws data. It can be accessed [here](http://snap.stanford.edu/data/web-FineFoods.html). The data contains approx. 569,000 reviews from 256,000 users.
